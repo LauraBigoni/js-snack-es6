@@ -31,22 +31,19 @@ console.table(bikes);
 
 // # STAMPO IN CONSOLE LA BICI CON PESO MIN
 let minWeight = 0;
-for (let i = 0; i < bikes.length; i++) {
-const currentWeight = bikes[i].peso;
-if (i == 0) {
-    minWeight = currentWeight;
-}
-if (currentWeight < minWeight) {
-    minWeight = currentWeight;
-}
-};
-console.log(minWeight);
+for (let i = 0; i < bikes.length -1; i++) {
 
-const bikeName = bikes.find(bikeName => bikeName.peso === minWeight);
+    if (bikes[i].peso < bikes[minWeight].peso) {
+        minWeight = i;
+    }
+};
+console.log(bikes[minWeight].peso);
+
+const bikeName = bikes.find(bikeName => bikeName.peso === bikes[minWeight].peso);
 console.log(bikeName);
 const {nome} = bikeName;
 console.log(nome);
 
 
 // # STAMPO IN PAGINA
-display.innerHTML = `La bici col peso minore è:<strong> ${nome.toUpperCase()} </strong><br> con un peso di:<strong> ${minWeight} </strong>kg`;
+display.innerHTML = `La bici col peso minore è: <strong> ${nome.toUpperCase()} </strong> , con un peso di: <strong> ${bikes[minWeight].peso}</strong> kg`;
