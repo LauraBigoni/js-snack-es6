@@ -40,11 +40,11 @@ let punti_fatti;
 let falli_subiti;
 for (let i = 0; i < footballTeams.length; i++) {
     let currentItem = footballTeams[i];
-        punti_fatti = getRandomNumber(1,100);
-        falli_subiti = getRandomNumber(1,50);
-        currentItem.punti_fatti = punti_fatti;
-        currentItem.falli_subiti = falli_subiti;
-    }
+    punti_fatti = getRandomNumber(1, 100);
+    falli_subiti = getRandomNumber(1, 50);
+    currentItem.punti_fatti = punti_fatti;
+    currentItem.falli_subiti = falli_subiti;
+}
 console.table(footballTeams);
 
 
@@ -52,15 +52,20 @@ console.table(footballTeams);
 const newTeamsList = [];
 for (let i = 0; i < footballTeams.length; i++) {
     let currentItem = footballTeams[i];
-    const {nome, falli_subiti} = currentItem;
-    const newObj = {
-        nome: nome,
-        falli_subiti: falli_subiti
-    }
-    newTeamsList.push(newObj);
-}
+    const { nome, falli_subiti } = currentItem;
+    const newScore = { nome, falli_subiti }
+    newTeamsList.push(newScore);
+};
 console.table(newTeamsList);
 
-
 // # STAMPO IN PAGINA
-// display.innerHTML = `${}`;
+let content = '';
+for (let i = 0; i < newTeamsList.length; i++) {
+    let currentScore = newTeamsList[i];
+    content += `<ul>`;
+    for (let key in currentScore) {
+        content += `<div><strong>${key}</strong> : ${currentScore[key]}`;
+    }
+    content += `</ul><hr>`;
+}
+display.innerHTML = content;
