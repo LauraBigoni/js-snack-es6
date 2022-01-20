@@ -30,3 +30,37 @@ const footballTeams = [
 ];
 console.table(footballTeams);
 
+
+// # FUNZIONE NUM RANDOM
+const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+
+// # GENERO NUM RANDOM DA INSERIRE NELLE PROPRIETA'
+let punti_fatti;
+let falli_subiti;
+for (let i = 0; i < footballTeams.length; i++) {
+    let currentItem = footballTeams[i];
+        punti_fatti = getRandomNumber(1,100);
+        falli_subiti = getRandomNumber(1,50);
+        currentItem.punti_fatti = punti_fatti;
+        currentItem.falli_subiti = falli_subiti;
+    }
+console.table(footballTeams);
+
+
+// # CREO UN NUOVO ARRAY CON SOLO DUE PROPRIETA'
+const newTeamsList = [];
+for (let i = 0; i < footballTeams.length; i++) {
+    let currentItem = footballTeams[i];
+    const {nome, falli_subiti} = currentItem;
+    const newObj = {
+        nome: nome,
+        falli_subiti: falli_subiti
+    }
+    newTeamsList.push(newObj);
+}
+console.table(newTeamsList);
+
+
+// # STAMPO IN PAGINA
+// display.innerHTML = `${}`;
