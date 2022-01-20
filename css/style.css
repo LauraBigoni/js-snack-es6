@@ -1,4 +1,17 @@
 * {
     font-family: 'Poiret One', cursive;
-    font-size: 30px;
+    font-size: 24px;
+    color: aliceblue;
+}
+
+ul {
+    background-color: rgb(29, 100, 170);
+    border: 1px solid white;
+    height: 100px;
+    width: 300px;
+    margin-right: 20px;
+}
+
+main {
+    background-color: rgb(194, 222, 255);
 }

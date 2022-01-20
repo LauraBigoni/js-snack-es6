@@ -62,10 +62,10 @@ console.table(newTeamsList);
 let content = '';
 for (let i = 0; i < newTeamsList.length; i++) {
     let currentScore = newTeamsList[i];
-    content += `<ul>`;
+    content += `<ul class="list-unstyled">`;
     for (let key in currentScore) {
-        content += `<div><strong>${key}</strong> : ${currentScore[key]}`;
+        content += `<li>${key + ' ' + 'squadra'} : <span class="fw-bolder">${currentScore[key]}</span></li>`;
     }
-    content += `</ul><hr>`;
+    content += `</ul>`;
 }
 display.innerHTML = content;
