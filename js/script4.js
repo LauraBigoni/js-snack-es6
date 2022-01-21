@@ -65,17 +65,13 @@ console.log(getId(studenti, 120));
 
 // # CREO UNA FUNZIONE PER CAPITALIZE
 const capitalize = (phrase) => {
-    return phrase
-        .toLowerCase()
-        .split(' ')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
+    return phrase.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 };
 
 
 // # METTO I NOMI CON L'INIZIALE IN MAIUSCOLO
 // # USO FOR EACH PER STAMPARE IN PAGINA I LORO DATI
-(getId(studenti, 120) && getVote(studenti, 70)).forEach((element) => {
+((getId(studenti, 120)) && (getVote(studenti, 70))).forEach((element) => {
     element.nome = capitalize(element.nome);
 
     console.log(`${element.nome} con un voto di: ${element.voto}`);
