@@ -42,8 +42,8 @@ let voto;
 
 for (let i = 0; i < studenti.length; i++) {
     let studente = studenti[i];
-    studente.id = getRandomNumber(100, 500);
-    studente.voto = getRandomNumber(20, 100);
+    studente.id = getRandomNumber(100, 140);
+    studente.voto = getRandomNumber(10, 100);
 }
 
 console.table(studenti);
@@ -58,7 +58,7 @@ studenti.forEach((element) => {
 
     console.log(`${element.nome} con un voto di: ${element.voto}`);
 
-    display.innerHTML += `<div><strong>${element.nome}</strong> ( id n: ${element.id}) con un voto di: <strong>${element.voto}</strong></div>`;
+    display.innerHTML += `<div><strong>${element.nome}</strong> ( id n: ${element.id}) con un voto di: <strong>${element.voto}</strong><hr></div>`;
 });
 
 // # STUDENTI CON VOTI SUPERIORI A 70
@@ -68,3 +68,10 @@ const getVote = (arr, min) => {
 }
 
 console.log(getVote(studenti, 70))
+
+// # STUDENTI CON VOTI SUPERIORI A 70 E ID MAGGIORE DI 120
+const getId = (arr, min) => {
+    return arr.filter((item) => (item.id > min));
+}
+
+console.log(getId(studenti, 120));
