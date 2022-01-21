@@ -47,3 +47,10 @@ for (let i = 0; i < studenti.length; i++) {
 }
 
 console.table(studenti);
+
+// # USO FOR EACH PER STAMPARE IN PAGINA I LORO DATI
+studenti.forEach((element) => {
+    console.log(`${element.nome} con un voto di: ${element.voto}`);
+    display.innerHTML += `<div><strong>${element.nome}</strong> ( id n: ${element.id}) con un voto di: <strong>${element.voto}</strong></div>`;
+});
+
