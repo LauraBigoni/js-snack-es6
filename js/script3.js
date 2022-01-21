@@ -36,7 +36,7 @@ const getRange = (arr, min, max) => {
 const nuoveBici = getRange(bici,2,5);
 console.log(nuoveBici);
 
-// # CREO LA FUNZIONE CON FOR EACH E STAMPO IN PAGINA
+// # USO FOR EACH E STAMPO IN PAGINA
 nuoveBici.forEach((element) => {
     console.log(`${element.nome} con un peso di: ${element.peso}`);
     listaBici.innerHTML += `<div><strong>${element.nome}</strong> con un peso di: <strong>${element.peso}</strong></div>`;
