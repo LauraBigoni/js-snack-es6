@@ -57,7 +57,14 @@ studenti.forEach((element) => {
     element.nome = firstLetter + otherLetters;
 
     console.log(`${element.nome} con un voto di: ${element.voto}`);
-    
+
     display.innerHTML += `<div><strong>${element.nome}</strong> ( id n: ${element.id}) con un voto di: <strong>${element.voto}</strong></div>`;
 });
 
+// # STUDENTI CON VOTI SUPERIORI A 70
+// Funzione per recuperare il voto
+const getVote = (arr, min) => {
+    return arr.filter((item) => (item.voto > min));
+}
+
+console.log(getVote(studenti, 70))
