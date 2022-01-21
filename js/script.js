@@ -14,7 +14,7 @@ const display = document.getElementById('display');
 
 
 // # CREO UN ARRAY DI OGGETTI DI BICICLETTE
-const bikes = [
+const bici = [
     { nome: 'Tommasini', peso: 7.43 },
     { nome: 'Saccarelli', peso: 1.25 },
     { nome: 'Ridley', peso: 3.10 },
@@ -26,24 +26,41 @@ const bikes = [
     { nome: 'Formigli', peso: 1.40 },
     { nome: 'Bianchi', peso: 5.85 },
 ];
-console.table(bikes);
+
+console.table(bici);
 
 
 // # STAMPO IN CONSOLE LA BICI CON PESO MIN
-let minWeight = 0;
-for (let i = 0; i < bikes.length -1; i++) {
+let pesoMin = 0;
 
-    if (bikes[i].peso < bikes[minWeight].peso) {
-        minWeight = i;
+for (let i = 0; i < bici.length; i++) {
+    console.log(bici[i]);
+    if (bici[i].peso < bici[pesoMin].peso) {
+        pesoMin = i;
     }
 };
-console.log(bikes[minWeight].peso);
 
-const bikeName = bikes.find(bikeName => bikeName.peso === bikes[minWeight].peso);
-console.log(bikeName);
-const {nome} = bikeName;
-console.log(nome);
+console.log(bici[pesoMin].peso);
+console.log(bici[pesoMin].nome);
+
+// Destructuring
+// const {peso} = bici;
+// const {nome} = minWeight;
+// # soluzione alternativa con funzione
+// const pesoMin = bici.reduce((val1, val2) => val1.peso < val2.peso ? val1 : val2);
+// console.log(pesoMin);
+
+// # FUNZIONE alternativa
+// const getLowestItem = (arr, key) => {
+//     let lowestItem = arr[0];
+//     for ( let i = 1; i < arr.lenght; i++){
+//         const item = arr[i];
+
+//         if ( item[key] < lowestItem[key]) lowestItem = item;
+//     }
+//     return lowestItem;
+// };
 
 
 // # STAMPO IN PAGINA
-display.innerHTML = `La bici col peso minore è: <strong> ${nome.toUpperCase()} </strong> , con un peso di: <strong> ${bikes[minWeight].peso}</strong> kg`;
+display.innerHTML = `La bici col peso minore è: <strong> ${bici[pesoMin].nome.toUpperCase()} </strong> , con un peso di: <strong> ${bici[pesoMin].peso}</strong> kg`;

@@ -17,17 +17,18 @@ const display = document.getElementById('display');
 
 // # CREO UN ARRAY DI OGGETTI DI SQUADRE DI CALCIO
 const footballTeams = [
-    { nome: 'Salernitana', punti_fatti: 0, falli_subiti: 0 },
-    { nome: 'Inter', punti_fatti: 0, falli_subiti: 0 },
-    { nome: 'Fiorentina', punti_fatti: 0, falli_subiti: 0 },
-    { nome: 'Milan', punti_fatti: 0, falli_subiti: 0 },
-    { nome: 'Napoli', punti_fatti: 0, falli_subiti: 0 },
-    { nome: 'Empoli', punti_fatti: 0, falli_subiti: 0 },
-    { nome: 'Udinese', punti_fatti: 0, falli_subiti: 0 },
-    { nome: 'Lazio', punti_fatti: 0, falli_subiti: 0 },
-    { nome: 'Bologna', punti_fatti: 0, falli_subiti: 0 },
-    { nome: 'Roma', punti_fatti: 0, falli_subiti: 0 },
+    { nome: 'Salernitana', puntiFatti: 0, falliSubiti: 0 },
+    { nome: 'Inter', puntiFatti: 0, falliSubiti: 0 },
+    { nome: 'Fiorentina', puntiFatti: 0, falliSubiti: 0 },
+    { nome: 'Milan', puntiFatti: 0, falliSubiti: 0 },
+    { nome: 'Napoli', puntiFatti: 0, falliSubiti: 0 },
+    { nome: 'Empoli', puntiFatti: 0, falliSubiti: 0 },
+    { nome: 'Udinese', puntiFatti: 0, falliSubiti: 0 },
+    { nome: 'Lazio', puntiFatti: 0, falliSubiti: 0 },
+    { nome: 'Bologna', puntiFatti: 0, falliSubiti: 0 },
+    { nome: 'Roma', puntiFatti: 0, falliSubiti: 0 },
 ];
+
 console.table(footballTeams);
 
 
@@ -36,30 +37,33 @@ const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)
 
 
 // # GENERO NUM RANDOM DA INSERIRE NELLE PROPRIETA'
-let punti_fatti;
-let falli_subiti;
+let puntiFatti;
+let falliSubiti;
+
 for (let i = 0; i < footballTeams.length; i++) {
-    let currentItem = footballTeams[i];
-    punti_fatti = getRandomNumber(1, 100);
-    falli_subiti = getRandomNumber(1, 50);
-    currentItem.punti_fatti = punti_fatti;
-    currentItem.falli_subiti = falli_subiti;
+    let team = footballTeams[i];
+    team.puntiFatti = getRandomNumber(1, 100);
+    team.falliSubiti = getRandomNumber(1, 50);
 }
+
 console.table(footballTeams);
 
 
 // # CREO UN NUOVO ARRAY CON SOLO DUE PROPRIETA'
 const newTeamsList = [];
+
 for (let i = 0; i < footballTeams.length; i++) {
-    let currentItem = footballTeams[i];
-    const { nome, falli_subiti } = currentItem;
-    const newScore = { nome, falli_subiti }
-    newTeamsList.push(newScore);
+    let Team = footballTeams[i];
+    const { nome, falliSubiti } = Team;
+    newTeamsList.push({ nome, falliSubiti });
 };
+
 console.table(newTeamsList);
+
 
 // # STAMPO IN PAGINA
 let content = '';
+
 for (let i = 0; i < newTeamsList.length; i++) {
     let currentScore = newTeamsList[i];
     content += `<ul class="list-unstyled">`;
@@ -68,4 +72,23 @@ for (let i = 0; i < newTeamsList.length; i++) {
     }
     content += `</ul>`;
 }
+
 display.innerHTML = content;
+
+
+// # STAMPIAMO IN TABELLA
+// const tableData = document.querySelector('tbody');
+// let content = ';'
+// for (let i = 0; i < newTeamsList.lenght; i++) {
+//     const {nome, falliSubiti} = newTeamsList[i];
+//     content += `
+//     <tr>
+//         <td>${nome}</td>
+//         <td>${falliSubiti}</td>
+//     </tr>
+//     `;
+//     console.log(nome);
+//     console.log(falliSubiti);
+// };
+
+// tableData.innerHTML = content;
