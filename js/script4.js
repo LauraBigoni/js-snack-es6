@@ -7,9 +7,6 @@ ES (marco de iulio => Marco de iulio);
 3. Dobbiamo creare una lista di tutti gli studenti che hanno un totale di voti superiore a 70 e id superiore a 120
 BONUS  nei nomi sulle targhe l'iniziale di ogni parola deve essere maiuscola
 ES.: (marco de iulio  => Marco De Iulio)
-
-BONUS  nei nomi sulle targhe l'iniziale di ogni parola deve essere maiuscola
-ES.: (marco de iulio  => Marco De Iulio)
 */
 
 // # RECUPERO GLI ELEMENTI IN PAGINA
@@ -49,18 +46,6 @@ for (let i = 0; i < studenti.length; i++) {
 console.table(studenti);
 
 
-// # METTO I NOMI CON L'INIZIALE IN MAIUSCOLO
-// # USO FOR EACH PER STAMPARE IN PAGINA I LORO DATI
-studenti.forEach((element) => {
-    const firstLetter = element.nome.charAt(0).toUpperCase();
-    const otherLetters = element.nome.substring(1).toLowerCase();
-    element.nome = firstLetter + otherLetters;
-
-    console.log(`${element.nome} con un voto di: ${element.voto}`);
-
-    display.innerHTML += `<div><strong>${element.nome}</strong> ( id n: ${element.id}) con un voto di: <strong>${element.voto}</strong><hr></div>`;
-});
-
 // # STUDENTI CON VOTI SUPERIORI A 70
 // Funzione per recuperare il voto
 const getVote = (arr, min) => {
@@ -69,9 +54,23 @@ const getVote = (arr, min) => {
 
 console.log(getVote(studenti, 70))
 
-// # STUDENTI CON VOTI SUPERIORI A 70 E ID MAGGIORE DI 120
+
+// # STUDENTI ID MAGGIORE DI 120
 const getId = (arr, min) => {
     return arr.filter((item) => (item.id > min));
 }
 
 console.log(getId(studenti, 120));
+
+
+// # METTO I NOMI CON L'INIZIALE IN MAIUSCOLO
+// # USO FOR EACH PER STAMPARE IN PAGINA I LORO DATI
+(getId(studenti, 120) && getVote(studenti, 70)).forEach((element) => {
+    const firstLetter = element.nome.charAt(0).toUpperCase();
+    const otherLetters = element.nome.substring(1).toLowerCase();
+    element.nome = firstLetter + otherLetters;
+
+    console.log(`${element.nome} con un voto di: ${element.voto}`);
+
+    display.innerHTML += `<div><strong>${element.nome}</strong> ( id n: ${element.id}) con un voto di: <strong>${element.voto}</strong><hr></div>`;
+});
