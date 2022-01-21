@@ -39,7 +39,7 @@ let voto;
 
 for (let i = 0; i < studenti.length; i++) {
     let studente = studenti[i];
-    studente.id = getRandomNumber(100, 140);
+    studente.id = getRandomNumber(100, 150);
     studente.voto = getRandomNumber(10, 100);
 }
 
@@ -63,6 +63,13 @@ const getId = (arr, min) => {
 console.log(getId(studenti, 120));
 
 
+// # CREO UNA FUNZIONE PER DOPPIO CONTROLLO ID > 70 E ID > 120
+const getIdAndVote = (arr, val1, val2) => {
+    return arr.filter((item) => (item.id > val1 && item.voto > val2));
+};
+console.log(getIdAndVote(studenti, 120, 70))
+
+
 // # CREO UNA FUNZIONE PER CAPITALIZE
 const capitalize = (phrase) => {
     return phrase.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
@@ -71,10 +78,10 @@ const capitalize = (phrase) => {
 
 // # METTO I NOMI CON L'INIZIALE IN MAIUSCOLO
 // # USO FOR EACH PER STAMPARE IN PAGINA I LORO DATI
-((getId(studenti, 120)) && (getVote(studenti, 70))).forEach((element) => {
+(getIdAndVote(studenti,120,70)).forEach((element) => {
     element.nome = capitalize(element.nome);
 
-    console.log(`${element.nome} con un voto di: ${element.voto}`);
+    console.log(`${element.nome} (id: ${element.id}), con un voto di: ${element.voto}`);
 
     display.innerHTML += `<div><strong>${element.nome}</strong> ( id n: <strong>${element.id}</strong>) con un voto di: <strong>${element.voto}</strong><hr></div>`;
 });
