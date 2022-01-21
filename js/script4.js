@@ -17,19 +17,19 @@ const display = document.getElementById('display');
 
 
 const studenti = [
-    {id: 0, nome: 'luca bianchi', voto: 0},
-    {id: 0, nome: 'marco de iulio', voto: 0},
-    {id: 0, nome: 'stefano cesaroni', voto: 0},
-    {id: 0, nome: 'anna mazzoni', voto: 0},
-    {id: 0, nome: 'ilaria marini', voto: 0},
-    {id: 0, nome: 'stefano truncellito', voto: 0},
-    {id: 0, nome: 'davide sesto', voto: 0},
-    {id: 0, nome: 'stefania rosa', voto: 0},
-    {id: 0, nome: 'valentino rossi', voto: 0},
-    {id: 0, nome: 'maria lo iudice', voto: 0},
+    { id: 0, nome: 'luca bianchi', voto: 0 },
+    { id: 0, nome: 'marco de iulio', voto: 0 },
+    { id: 0, nome: 'stefano cesaroni', voto: 0 },
+    { id: 0, nome: 'anna mazzoni', voto: 0 },
+    { id: 0, nome: 'ilaria marini', voto: 0 },
+    { id: 0, nome: 'stefano truncellito', voto: 0 },
+    { id: 0, nome: 'davide sesto', voto: 0 },
+    { id: 0, nome: 'stefania rosa', voto: 0 },
+    { id: 0, nome: 'valentino rossi', voto: 0 },
+    { id: 0, nome: 'maria lo iudice', voto: 0 },
 ];
 
-console.table(studenti);
+console.log(studenti);
 
 
 // # FUNZIONE NUM RANDOM
@@ -48,9 +48,16 @@ for (let i = 0; i < studenti.length; i++) {
 
 console.table(studenti);
 
+
+// # METTO I NOMI CON L'INIZIALE IN MAIUSCOLO
 // # USO FOR EACH PER STAMPARE IN PAGINA I LORO DATI
 studenti.forEach((element) => {
+    const firstLetter = element.nome.charAt(0).toUpperCase();
+    const otherLetters = element.nome.substring(1).toLowerCase();
+    element.nome = firstLetter + otherLetters;
+
     console.log(`${element.nome} con un voto di: ${element.voto}`);
+    
     display.innerHTML += `<div><strong>${element.nome}</strong> ( id n: ${element.id}) con un voto di: <strong>${element.voto}</strong></div>`;
 });
 
