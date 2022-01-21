@@ -1,7 +1,7 @@
 * {
     font-family: 'Poiret One', cursive;
     font-size: 24px;
-    color: rgb(0, 0, 0);
+    color: rgb(61, 61, 61);
 }
 
 ul {
@@ -12,6 +12,6 @@ ul {
     margin-right: 20px;
 }
 
-main {
+body {
     background-color: rgb(194, 222, 255);
 }

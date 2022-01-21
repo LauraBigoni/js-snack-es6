@@ -9,6 +9,7 @@ Stampare in console la bici con peso minore utilizzando destructuring e template
 BONUS
 Stampare in pagina oltre che in console!
 */
+
 // # RECUPERO GLI ELEMENTI IN PAGINA
 const display = document.getElementById('display');
 
@@ -46,6 +47,7 @@ console.log(bici[pesoMin].nome);
 // Destructuring
 // const {peso} = bici;
 // const {nome} = minWeight;
+
 // # soluzione alternativa con funzione
 // const pesoMin = bici.reduce((val1, val2) => val1.peso < val2.peso ? val1 : val2);
 // console.log(pesoMin);
@@ -64,3 +66,4 @@ console.log(bici[pesoMin].nome);
 
 // # STAMPO IN PAGINA
 display.innerHTML = `La bici col peso minore è: <strong> ${bici[pesoMin].nome.toUpperCase()} </strong> , con un peso di: <strong> ${bici[pesoMin].peso}</strong> kg`;
+
