@@ -33,6 +33,9 @@ const getRange = (arr, min, max) => {
     return arr.filter((item) => (item.peso > min) && (item.peso < max));
 }
 
+// ! ancora piu abbreviato 
+// const getRange = (arr, min, max) => arr.filter((item) => (item.peso > min) && (item.peso < max));
+
 const nuoveBici = getRange(bici,2,5);
 console.log(nuoveBici);
 

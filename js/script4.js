@@ -72,7 +72,7 @@ console.log(getIdAndVote(studenti, 120, 70))
 
 // # CREO UNA FUNZIONE PER CAPITALIZE
 const capitalize = (phrase) => {
-    return phrase.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    return phrase.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.substring(1)).join(' ');
 };
 
 
